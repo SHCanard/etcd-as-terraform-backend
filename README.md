@@ -93,7 +93,7 @@ Create the etcd service
 systemctl edit etcd.service --force --full
 ```
 
-And enter the following configuration
+And enter the following configuration (update `name`, `initial-advertise-peer-urls`, `listen-peer-urls`, `listen-client-urls` and `advertise-client-urls` to right values depending of the server)
 ```bash
 [Unit]
 Description=etcd service
