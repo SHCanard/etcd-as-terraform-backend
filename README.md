@@ -103,14 +103,14 @@ Documentation=https://github.com/coreos/etcd
 User=etcd
 Type=notify
 ExecStart=/etcd/etcd \
- --name serve01 \
+ --name server01 \
  --data-dir /etcd/data \
  --initial-advertise-peer-urls https://10.0.1.1:2380 \
  --listen-peer-urls https://10.0.1.1:2380 \
  --listen-client-urls https://10.0.0.1:2379,http://127.0.0.1:2379 \
  --advertise-client-urls https://10.0.0.1:2379 \
  --initial-cluster-token terraformbackend \
- --initial-cluster serve01=https://10.0.1.1:2380,server02=https://10.0.1.2:2380,server03=https://10.0.1.3:2380 \
+ --initial-cluster server01=https://10.0.1.1:2380,server02=https://10.0.1.2:2380,server03=https://10.0.1.3:2380 \
  --initial-cluster-state new \
  --heartbeat-interval 1000 \
  --election-timeout 5000 \
@@ -136,7 +136,7 @@ systemctl start etcd
 /etcd/etcdctl cluster-health
 ```
 
-If it fails chack permissions on the etcd user home directory
+If it fails check permissions on the etcd user home directory
 ```bash
 chown -R etcd:etcd /etcd/data
 ```
